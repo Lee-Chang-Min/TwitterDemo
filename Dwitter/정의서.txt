@@ -1,0 +1,68 @@
+Tweets API
+
+# Tweets에 어떤 데이터가 들어있어야 되는지 Schema 작성
+{
+    id : string,
+    text : string,
+    createdAT : Date; //트윗 생성날짜
+    name : string,
+    username : string,
+    url : string(optional) // 사용자 프로파일 사진 URL
+}
+
+# 드위터 전체조회
+Method: GET '/tweets'
+
+Response 200
+{
+    [tweet, tweet ...]
+}
+
+# 특정 username 으로 조회
+Method: GET '/tweets?username=:username'
+
+Response 200
+{ 
+    [tweet, tweet ...]
+}
+
+# 아이디로 조회
+Method: GET '/tweets/:id'
+
+{
+    tweet
+}
+
+# tweets 글 작성
+Method: POST '/tweets'
+
+Request
+{
+    text,
+    name,
+    username,
+    url(optional)
+}
+
+Response
+{
+    tweet
+}
+
+# tweet업데이트
+Method: PUT '/tweet/:id'
+
+Request
+{
+    text
+}
+Response
+{
+    tweet
+}
+
+# tweet 삭제
+DELETE '/tweets/:id'
+
+
+
